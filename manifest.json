@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Quick Save Images",
+  "version": "1.0.0",
+  "description": "Maxthon-style quick save: hold Ctrl and left-click an image to save it to your folder instantly.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1XMDwzqAAjEyx7zOWK4uInS5N3U0TxQsF8wZKUuW7A1OdylPd8TU+UVFb06uwLHLEZmViiBhD0jct+f2JV9IsNP9V6PfE1l8rkXfR+SKP2rITeX39g84idnwhDQ2Uw8E2i9kcF4h0a1EWCCO9yypEUl4eEFxvGuT8h3HE9R1iAfScIHhyWHPvqkUBbiMeAWrnb4nHmHMQe495838BRo6XeFETr+DkV6wWnbVy8X0CuDX63KmRqxlsz6IE/RrJWvDyBjoPFkJWcDJ6VJ5D4ZxXVclVIVZhHc5CRPp5+a5Tm4eSCzeBvttzqsGKOc8Y9lhPRtzwXUl4Y5gJQYq45+mtQIDAQAB",
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "action": {
+    "default_title": "Quick Save Images settings",
+    "default_icon": { "16": "icons/16.png", "32": "icons/32.png" }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage", "nativeMessaging", "notifications", "scripting", "declarativeNetRequestWithHostAccess"],
+  "host_permissions": ["<all_urls>"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_origin_as_fallback": true
+    }
+  ]
+}

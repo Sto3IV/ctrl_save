@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Quick Save Images</title>
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #333333; --title: #fefefe; --text: #e4e4e4; --rule: #4f4f4f; --accent: #6f8cb4; --error: #e8908a;
+    --field: #444444; --field-border: #4f4f4f; --field-text: #9e9e9e;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: light;
+      --bg: #ffffff; --title: #1f1f1f; --text: #333333; --rule: #dddddd; --accent: #3f6db3; --error: #b3261e;
+      --field: #f3f3f3; --field-border: #d0d0d0; --field-text: #6b6b6b;
+    }
+  }
+  body { margin: 0; padding: 22px 24px; background: var(--bg); color: var(--text); font: 14px/1.4 "Segoe UI", system-ui, sans-serif; }
+  h1 { margin: 0 0 20px; color: var(--title); font-size: 18px; font-weight: 600; }
+  .row { display: flex; align-items: center; gap: 9px; margin: 0 0 14px 40px; min-height: 34px; }
+  .sub { margin-left: 64px; }
+  label { display: inline-flex; align-items: center; gap: 8px; margin-right: 10px; }
+  input[type=checkbox], input[type=radio] { margin: 0; accent-color: var(--accent); }
+  #dir { width: 318px; height: 34px; box-sizing: border-box; padding: 0 10px; border: 1px solid var(--field-border); border-radius: 4px; background: var(--field); color: var(--field-text); font: inherit; outline: none; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  body.off .sub { opacity: .45; pointer-events: none; }
+  #status { margin: 0 0 12px 64px; color: var(--error); }
+  #status:empty { display: none; }
+  hr { margin: 0; border: 0; border-top: 1px solid var(--rule); }
+</style>
+</head>
+<body>
+  <h1>Quick save images</h1>
+  <div class="row">
+    <label><input type="checkbox" id="enabled"> Quick Save images by clicking while holding the Ctrl key</label>
+  </div>
+  <div class="row sub">
+    <span>Save path</span>
+    <input id="dir" readonly spellcheck="false">
+    <a id="change" href="#">Change</a>
+  </div>
+  <div class="row sub">
+    <span>Repeated file name</span>
+    <label><input type="radio" name="conflict" value="rename"> Auto-change file name</label>
+    <label><input type="radio" name="conflict" value="overwrite"> Overwrite file</label>
+  </div>
+  <p id="status" role="status"></p>
+  <hr>
+  <script src="options.js"></script>
+</body>
+</html>

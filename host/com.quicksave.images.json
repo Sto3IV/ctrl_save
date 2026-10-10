@@ -1,0 +1,7 @@
+{
+  "name": "com.quicksave.images",
+  "description": "Quick Save Images file writer",
+  "path": "QuickSaveHost.exe",
+  "type": "stdio",
+  "allowed_origins": ["chrome-extension://jlajfcdbinphakjlgikojcbiokdfeijg/"]
+}
