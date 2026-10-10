@@ -32,6 +32,22 @@ Inspired by Maxthon's beloved quick-save feature, brought to **Vivaldi**, **Goog
 
 ---
 
+## 🔒 Build from Source (Optional)
+
+If you prefer not to run precompiled `.exe` binaries from the internet:
+
+1. **Full Transparency**: The entire native helper is open source in a single, easily auditable file: [`host/QuickSaveHost.cs`](host/QuickSaveHost.cs).
+2. **Delete the binary**: You can safely delete `host/QuickSaveHost.exe`.
+3. **Automatic Compilation**: When you run `install.cmd`, it automatically builds `QuickSaveHost.exe` from scratch using the official Microsoft C# compiler (`csc.exe`) that already comes pre-installed with Windows. No extra software or SDKs needed.
+
+*(Optional manual build command via CMD / PowerShell:)*
+```cmd
+%WINDIR%\Microsoft.NET\Framework64\v4.0.30319\csc.exe /nologo /target:exe /optimize+ /win32manifest:host\app.manifest /r:System.Web.Extensions.dll /r:System.Windows.Forms.dll /r:System.Drawing.dll /out:host\QuickSaveHost.exe host\QuickSaveHost.cs
+```
+
+
+---
+
 ## ⚙️ Settings
 
 Click the extension icon in your browser toolbar to customize:
