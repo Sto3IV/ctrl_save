@@ -1,48 +1,53 @@
-# Quick Save Images
+# Quick Save Images (Ctrl + Click)
 
-Maxthon's "Quick save images" for Vivaldi. Hold **Ctrl** and left-click an image, and it is saved straight into your folder, with no dialog.
+> **Save any image from the web with a single click.**  
+> Hold **Ctrl** and **left-click** any image — it saves straight into your folder instantly, without annoying "Save As" dialogs.
 
-## Install
+<p align="center">
+  <img src="assets/preview.png" alt="Quick Save Images Settings Preview" />
+</p>
 
-1. Run `install.cmd`. It builds the helper with the C# compiler that ships with Windows and registers it for the current user.
-2. In Vivaldi, open `vivaldi://extensions`.
-3. Turn on **Developer mode**, click **Load unpacked**, and choose this folder.
-4. To open the settings, click the extension's toolbar button.
+Inspired by Maxthon's beloved quick-save feature, brought to **Vivaldi**, **Google Chrome**, and other Chromium-based browsers.
 
-## Settings
+---
 
-- **Quick Save images by clicking while holding the Ctrl key** turns the feature on or off.
-- **Save path** is your Pictures folder by default. **Change** opens the Windows folder picker.
-- **Repeated file name** decides what happens when the name is taken:
-  - **Auto-change file name** saves `photo (1).jpg`, `photo (2).jpg`, and so on;
-  - **Overwrite file** replaces the existing file.
+## ✨ Features
 
-## Behaviour
+- ⚡ **One-Click Instant Save** — Hold `Ctrl` + click any picture. No download popups, no waiting.
+- 🚫 **No Accidental Link Clicks** — Clicking an image won't open links or fullscreen lightboxes.
+- 📁 **Direct to Your Folder** — Saves directly to your Windows *Pictures* folder (or any custom folder you choose).
+- 🔔 **Windows Notification** — Shows a discreet notification confirming the save. Click it to jump straight to the file in File Explorer!
+- 🛡️ **Works on Protected Sites** — Seamlessly grabs images from hotlink-protected sites like Pixiv, Twitter/X, and art galleries.
+- 🏷️ **Smart File Naming** — Automatically detects the real image format (JPG, PNG, WebP, GIF, AVIF) and renames duplicates (`photo (1).jpg`) so you never overwrite files by mistake.
 
-- **What gets saved.** Ctrl+left-click saves the image even when it is inside a link. The page sees none of the click, so lightboxes don't open either. Middle-click still opens links.
-- **Confirmation.** A Windows notification confirms each save. Click it to see the file in Explorer.
-- **File name.** It comes from the server or the image address. The extension is corrected from the image bytes, so `photo.php` becomes `photo.jpg` and a WebP served as `.jpg` becomes `.webp`.
-- **Other sites.** An image hosted on another site is fetched with your cookies, and with the page's origin as Referer. Hotlink-protected images (pixiv) save too.
-- **Images only.** Nothing but real images is written. An HTML error page is refused.
-- **Tabs already open.** They work as soon as the extension is loaded or reloaded, with no page refresh.
+---
 
-## Limits
+## 🚀 Installation (3 Simple Steps)
 
-- **No `<img>` under the cursor.** The click passes through untouched. This happens when an image is covered by a transparent layer (Instagram), or when it is drawn as a CSS background.
-- **Tabs open at install or reload time.** The image is saved, but the page itself may still notice the click until the tab is refreshed. A page script that listened for clicks before the extension arrived runs first; no extension can get ahead of it.
-- **Pages without extensions.** Vivaldi's internal pages and the Chrome Web Store don't run extensions at all.
+1. **Run `install.cmd`** in this folder (sets up the lightweight Windows helper).
+2. In your browser, open `vivaldi://extensions` (or `chrome://extensions`).
+3. Turn on **Developer mode** in the top-right corner, click **Load unpacked**, and choose this folder.
 
-## Uninstall
+*You're all set! Hold `Ctrl` and click an image on any webpage to save it.*
 
-Run `uninstall.cmd`, then remove the extension in `vivaldi://extensions`.
+---
 
-## Files
+## ⚙️ Settings
 
-- `content.js` catches Ctrl+click in every page and frame, and reads same-origin images from the page's cache.
-- `background.js` fetches images from other sites, names the file, calls the helper and shows notifications.
-- `host\QuickSaveHost.cs` is the helper. It writes the file, shows the folder picker and reveals saved files in Explorer. `install.cmd` compiles it to `QuickSaveHost.exe`.
+Click the extension icon in your browser toolbar to customize:
+- **Enable/Disable** quick-save with a single checkbox.
+- **Save path**: click **Change** to select your favorite downloads folder.
+- **Duplicates**: choose whether to automatically number duplicate files or overwrite them.
 
-## License
+---
 
-This is free and unencumbered software released into the public domain under [The Unlicense](LICENSE).
+## 🗑️ How to Uninstall
 
+1. Run `uninstall.cmd`.
+2. Remove the extension from `vivaldi://extensions` (or `chrome://extensions`).
+
+---
+
+## 📄 License
+
+This project is completely free and released into the public domain under [The Unlicense](LICENSE).
